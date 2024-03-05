@@ -1,0 +1,159 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Ubuntu', sans-serif;
+}
+body{
+	background-image: url(images/mybanner.png);
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+}
+.header{
+	min-height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(255,223,211,0.12),rgba(255,223,211,0.12)),url(images/mybanner.png);
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+nav{
+	display: flex;
+	padding: 2% 6%;
+	justify-content: space-between;
+	align-items: center;
+}
+nav img{
+	width: 70px;
+}
+.nav-links{
+	flex: 1;
+	text-align: right;
+}
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;
+	position: relative;
+}
+.nav-links ul li a{
+	color: #728FCE;
+	text-decoration: none;
+	font-size: 17px;
+}
+.nav-links ul li::after{
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #f44336;
+	display: block;
+	margin: auto;
+}
+.nav-links ul li:hover::after{
+	width: 100%;
+}
+.text-box{
+	width: 90%;
+	color: #728FCE;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+.text-box h1{
+	font-size: 62px;
+}
+.text-box p{
+	margin: 10px 0 40px;
+	font-size: 20px;
+	color: #FFA500;
+}
+.text-box a{
+	font-weight: bold;
+	font-size: 12px;
+}
+.hero-btn{
+	display: inline-block;
+	text-decoration: none;
+	color: #B87333;
+	border: 1px solid #B87333;
+	padding: 12px 34px;
+	font-size: 13px;
+	background: transparent;
+	position: relative;
+	cursor: pointer;
+}
+.hero-btn:hover{
+	background: #FFDAB9;
+	box-shadow: 0 0 5px #FFDAB9, 0 0 25px #FFDAB9, 0 0 50px #FFDAB9, 0 0 200px #FFDAB9; 
+}
+nav .fa{
+	display: none;
+}
+@media(max-width: 700px){
+	.text-box h1{
+		font-size: 20px;
+	}
+	.nav-links ul li{
+		display: block;
+	}
+	.nav-links{
+		position: absolute;
+		background: #FFDAC1;
+		height: 100vh;
+		width: 200px;
+		top: 0;
+		right: -200px;
+		text-align: left;
+		z-index: 2;
+		font-weight: bold;
+		transition: 1s;
+	}
+	nav .fa{
+		display: block;
+		margin: 10px;
+		font-size: 22px;
+		cursor: pointer;
+	}
+	.nav-links ul{
+		padding: 30px;
+	}
+}
+/*----course----*/
+.course{
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	padding-top: 100px;
+	backdrop-filter: blur(10px);
+}
+.row{
+	margin-top: 5s;
+ 	display: flex;
+	justify-content: space-between;
+}
+.course-col{
+	flex-basis: 31%;
+	background: #fff3f3;
+	border-radius: 10px;
+	margin-bottom: 5%;
+	padding: 20px 12px;
+	box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
