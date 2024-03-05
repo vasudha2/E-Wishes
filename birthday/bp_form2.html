@@ -1,0 +1,90 @@
+<html>
+<head>
+    <style>
+    body{  
+    margin: 0;  
+    padding: 0;  
+    background-repeat: no-repeat;
+    font-family: 'Arial';  
+	background-image: linear-gradient(rgba(255,223,211,0.12),rgba(255,223,211,0.12)),url(images/mybanner.png);
+	background-size: cover;
+    }  
+    .login{  
+    position: absolute;
+    top: 200px;
+    right:360px;
+     width: 700px;  
+     height:250px;
+     overflow: hidden;  
+     margin: auto;  
+     padding: 50px 50px 50px 50px;
+    background-color: #FDB8B0;
+     border-radius: 15px ;     
+    } 
+    h2{  
+    position: absolute;
+    top: 100px;
+    right:600px;
+    text-align: center;  
+    color: #277582;  
+    padding: 20px;  
+    }  
+    label{  
+    color:black;  
+    font-size: 17px; 
+
+    }  
+    #fname{  
+    width: 650px;  
+    height: 150px;  
+    border: none;  
+    border-radius: 15px;  
+    padding-left: 8px;  
+    font-size: 18px;
+    }  
+    #back{  
+    width: 100px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding: 1px;    
+    } 
+    #log{  
+    width: 190px;  
+    height: 40px;  
+    border: none;  
+    text-align: center;
+    border-radius: 17px;    
+    color:black;  
+    margin: 20px 20px 20px 250px;
+    background:lightblue; 
+    }  
+    .login:hover {
+    background-color: #A1BDCB;
+    background-position: left bottom;
+    -webkit-transition: background 2s;
+    transition: background 2s;
+    }
+    #text:hover {
+    color: white;  
+    }
+    </style>
+</head>
+<body>
+    <h2>Personalize your card</h2>
+    <div class="login">
+    <form action="bp_card2.html" method="POST">
+            <label for="fname">Enter your wishes:</label><br><br>
+            <textarea name="fname" id="fname" rows="3" cols="20" maxlength="300"></textarea><br><br>
+            <button id="log" onclick="handleSubmit()">Create card</button>
+    </form>
+    </div>
+    <script>
+        function handleSubmit () {
+            const name = document.getElementById('fname').value;
+            sessionStorage.setItem("NAME", name);
+            return;
+        }
+    </script>
+</body>
+</html>
