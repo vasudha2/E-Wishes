@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="admin_styles.css"/>
+</head>
+<body>
+    <section>
+		<nav>
+			<div class="nav-links" id="navLinks">
+			<i class="fa fa-times" onclick="hideMenu()"></i>
+			<ul>
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="page3.html">CATEGORY</a></li>
+			<li><a href="contact.html">CONTACT US</a></li>
+			</ul>
+			</div>
+			<i class="fa fa-bars" onclick="showMenu()"></i>
+		</nav>
+	</section>
+    <h1>Login DATA</h1>
+        <table border="1">
+            <tr>
+                <th>FIRST NAME</th>
+                <th>EMAIL</th>
+                <th>PHONE NUMBER</th>
+            </tr>
+            
+            <tr>
+                <td>T.Divya Sri</td>
+                <td>19BQ1A05N1@vvit.net</td>
+                <td>9876543210</td>
+            </tr>
+            
+             <tr>
+                <td>Y.Vasudha</td>
+                <td>19BQ1A05P7@vvit.net</td>
+                <td>8769543310</td>
+            </tr>
+            
+             <tr>
+                <td>Sk.NagulMeera</td>
+                <td>19BQ1A05K6@vvit.net</td>
+                <td>6784992423</td>
+            </tr>
+            
+             <tr>
+                <td>Sk.Hafeez</td>
+                <td>20BQ1A0520@vvit.net</td>
+                <td>7594977347</td>
+            </tr>
+            
+             <tr>
+                <td>R.Rahul</td>
+                <td>rahul123@gmail.com</td>
+                <td>9762374673</td>
+            </tr>
+            <tr>
+                <td>Hemanth</td>
+                <td>hemanth1343@gmail.com</td>
+                <td>8762371671</td>
+            </tr>
+            <tr>
+                <td>Kiran</td>
+                <td>kiran323@gmail.com</td>
+                <td>7572371673</td>
+            </tr>
+            <tr>
+                <td>D.Pooja</td>
+                <td>pooja435@gmail.com</td>
+                <td>8795465343</td>
+            </tr>
+            <tr>
+                <td>L.Karan</td>
+                <td>karan32432@gmail.com</td>
+                <td>6762374671</td>
+            </tr>
+        </table>
+        <script>
+                // get input values
+                window.addEventListener('load', () => {
+                    const name = sessionStorage.getItem('NAME');
+                    const email= sessionStorage.getItem('EMAIL');
+                    const phn= sessionStorage.getItem('PHONE');
+                // get the html table
+                // 0 = the first table
+                    var table = document.getElementsByTagName('table')[0];
+                  
+                // add new empty row to the table
+                // 0 = in the top 
+                // table.rows.length = the end
+                // table.rows.length/2+1 = the center
+                    var newRow = table.insertRow(table.rows.length);
+                  
+                // add cells to the row
+                    var cel1 = newRow.insertCell(0);
+                    var cel2 = newRow.insertCell(1);
+                    var cel3 = newRow.insertCell(2);
+                  
+                // add values to the cells
+                    cel1.innerHTML = name;
+                    cel2.innerHTML = email;
+                    cel3.innerHTML = phn;
+                })
+        </script>
+    </body>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="page1_styles.css">
+</head>
+<body>
+	<section>
+		<nav>
+			<div class="nav-links" id="navLinks">
+			<i class="fa fa-times" onclick="hideMenu()"></i>
+			<ul>
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="page3.html">CATEGORY</a></li>
+			<li><a href="contact.html">CONTACT US</a></li>
+			</ul>
+			</div>
+			<i class="fa fa-bars" onclick="showMenu()"></i>
+		</nav>
+	</section>
+	<h2>Admin Login page</h2><br>
+    	<div id="text" class="login">    
+    	<form name="page2" id="login" method="get" action="#">     
+      	<label><b>Admin Name</b>    
+        	</label>    
+        	<input type="text" name="adname" id="Uname" placeholder="Username">    
+        	<br><br>    
+        	<label><b>Admin ID</b>    
+        	</label>    
+        	<input type="Password" name="pass_ad" id="Pass" placeholder="Password">    
+        	<br><br>    
+        	<input type="button" name="log" id="log" onclick="validate_form()" value="Log In Here">       
+        	<br><br>       
+			<a href="page1.html">Are you a new user??</a>     
+    </form>     
+	</div>
+	<script>
+		function validate_form() {
+			let admin_id=document.forms["page2"]["adname"].value;
+			let ad_pass=document.forms["page2"]["pass_ad"].value;
+			if(admin_id==""||admin_id==null||admin_id!="divya"){
+				alert("Incorrect Admin ID");  
+  				return false;  
+			}
+			else if(ad_pass.length!=6){  
+  				alert("Incorrect Password");  
+  				return false;  
+  			}  
+			else{
+				window.location.href = "admin.html";
+			}
+    	}
+	</script>
+</body>
+</html>

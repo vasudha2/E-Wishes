@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="page1_styles.css">
+</head>
+<body>
+	<section>
+		<nav>
+			<div class="nav-links" id="navLinks">
+			<i class="fa fa-times" onclick="hideMenu()"></i>
+			<ul>
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="page3.html">CATEGORY</a></li>
+			<li><a href="contact.html">CONTACT US</a></li>
+			</ul>
+			</div>
+			<i class="fa fa-bars" onclick="showMenu()"></i>
+		</nav>
+	</section>
+	<h2>Login Page</h2><br>
+    	<div id="text" class="login">    
+    	<form name="page1" id="login" method="POST" action="admin.html">     
+      	<label><b>Your Name     
+        	</b>    
+        	</label>    
+        	<input type="text" name="Uname" id="Uname" placeholder="User name">    
+        	<br><br>    
+        	<label><b>Your Email
+        	</b>    
+        	</label>    
+        	<input type="text" name="emaill" id="Pass" placeholder="Email Address">    
+        	<br><br> 
+			<label><b>Your Phone number
+        	</b>    
+        	</label>    
+        	<input type="text" name="phnumber" id="phone" placeholder="xxxxxxxxxx">    
+        	<br><br>    
+        	<input type="button" name="log" id="log" onclick="validate_form()" value="Log In Here">       
+        	<br><br>       
+        	<a href="page2.html">Are you an admin??</a>    
+    </form>     
+	</div>
+	<script>
+		function validate_form() {
+			var user_name=document.forms["page1"]["Uname"].value;
+			let user_email=document.forms["page1"]["emaill"].value;
+			let user_phn=document.forms["page1"]["phnumber"].value;
+			if(user_email=="" || user_email==null){
+				alert("Invalid email address.");
+				return false;
+			}
+			else if(user_name==""||user_name==null||user_name.length>20){
+				alert("Please enter your name");  
+  				return false;  
+			}
+			else if(user_phn=""||user_phn==null||user_phn.length!=10){
+				alert("Please enter valid phone number");
+				return false;
+			}
+			else{
+				handleSubmit();
+				window.location.href = "page3.html";
+			}
+    	}
+		function handleSubmit () {
+            const name = document.forms["page1"]["Uname"].value;
+			const email=document.forms["page1"]["emaill"].value;
+			const phn_num=document.forms["page1"]["phnumber"].value;
+            sessionStorage.setItem("NAME", name);
+			sessionStorage.setItem("EMAIL",email);
+			sessionStorage.setItem("PHONE",phn_num);
+            return;
+        }
+	</script>
+</body>
+</html>

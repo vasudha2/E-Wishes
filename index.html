@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="with=device-width, initial-scale=1.0">
+	<title>E-WISHES</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<section class="header">
+		<nav>
+			<div class="nav-links" id="navLinks">
+			<i class="fa fa-times" onclick="hideMenu()"></i>
+			<ul>
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="page3.html">CATEGORY</a></li>
+			<li><a href="contact.html">CONTACT US</a></li>
+			</ul>
+			</div>
+			<i class="fa fa-bars" onclick="showMenu()"></i>
+		</nav>
+		<div class="text-box">
+			<h1>WELCOME TO E-WISHES</h1>
+			<p>Wish People Well and mean it.<br>Special persons need special wishes.</p>
+			<a href="page1.html" class="hero-btn">Let's get Started</a>
+		</div>
+	</section>
+	<!------JavaScript------>
+	<script>
+		var navLinks=document.getElementById("navLinks");
+		function showMenu(){
+			navLinks.style.right="0";
+		}
+		function hideMenu(){
+			navLinks.style.right="-200px";
+		}
+	</script>
+</body>
+</html>

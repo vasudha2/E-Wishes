@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+h2{  
+    text-align: center;  
+    color: #277582;  
+    padding: 20px;  
+} 
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(255,223,211,0.12),rgba(255,223,211,0.12)),url(images/mybanner.png);
+	background-size: cover;
+}
+nav{
+	display: flex;
+	padding: 2% 6%;
+	justify-content: space-between;
+	align-items: center;
+}
+nav img{
+	width: 70px;
+}
+.nav-links{
+	flex: 1;
+	text-align: right;
+}
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;
+	position: relative;
+}
+.nav-links ul li a{
+	color: #728FCE;
+	text-decoration: none;
+	font-size: 17px;
+}
+.nav-links ul li::after{
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #f44336;
+	display: block;
+	margin: auto;
+}
+.nav-links ul li:hover::after{
+	width: 100%;
+}
+nav .fa{
+	display: none;
+}
+h1{  
+    text-align: center;  
+    color: #277582;  
+    padding: 20px;  
+}  
+table {
+    border-collapse: collapse;
+    width: 70%;
+    height: 90%;
+    background-color: antiquewhite;
+    position:center;
+    overflow: hidden;  
+    margin: auto;  
+    top: 50px;
+    margin: 20 0 0 200px;  
+    padding: 50px;  
+    border-radius: 15px ;  
+    position: relative;
+    left: 50px;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:hover {background-color: coral;}
