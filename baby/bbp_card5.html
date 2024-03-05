@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font-->
+  <style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    background-color: #e9883d;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  canvas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .card {
+    width: 640px;
+    height: 400px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    transition: 1s;
+  }
+  .card:hover {
+    transform: rotate(-5deg);
+  }
+  .card:hover .outside {
+    transform: rotateY(-130deg);
+  }
+  .outside,
+  .inside {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50.1%;
+  }
+  .inside {
+    background: linear-gradient(to right, #f4ecdf, #f1e7da 30%);
+    line-height: 3;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 50%;
+  }
+  .outside {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform-origin: left;
+    transition: 2s;
+    cursor: pointer;
+  }
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+  }
+  .front {
+    background-image: url(images/baby5.jpg);
+    background-size: cover;
+  }
+  .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #ecded9, #efddd1 30%);
+  }
+  .outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #000046;
+  }
+  .inside h1 {
+    font-size: 120px;
+    line-height: 120px;
+  }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div class="card">
+    <div class="outside">
+      <div class="front">
+      </div>
+      <div class="back"></div>
+    </div>
+    <div class="inside">
+      <p id="result-name"></p>
+      <h1>👶🏻</h1>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      const name = sessionStorage.getItem('NAME');
+      document.getElementById('result-name').innerHTML = name;
+    })
+  const canvasEl = document.querySelector('#canvas');
+  const w = canvasEl.width = window.innerWidth;
+  const h = canvasEl.height = window.innerHeight * 2;
+  function loop() {
+    requestAnimationFrame(loop);
+	  ctx.clearRect(0,0,w,h);
+    confs.forEach((conf) => {
+      conf.update();
+      conf.draw();
+    })
+  }
+  function Confetti () {
+    const colours = ['#fde132', '#009bde', '#ff6b00'];
+    this.x = Math.round(Math.random() * w);
+    this.y = Math.round(Math.random() * h)-(h/2);
+    this.rotation = Math.random()*360;
+    const size = Math.random()*(w/60);
+    this.size = size < 15 ? 15 : size;
+    this.color = colours[Math.floor(colours.length * Math.random())];
+    this.speed = this.size/7;
+    this.opacity = Math.random();
+    this.shiftDirection = Math.random() > 0.5 ? 1 : -1;
+  }
+  Confetti.prototype.border = function() {
+    if (this.y >= h) {
+      this.y = h;
+    }
+  }
+  Confetti.prototype.update = function() {
+    this.y += this.speed;
+    if (this.y <= h) {
+      this.x += this.shiftDirection/3;
+      this.rotation += this.shiftDirection*this.speed/100;
+    }
+    if (this.y > h) this.border();
+  };
+  Confetti.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, this.rotation, this.rotation+(Math.PI/2));
+    ctx.lineTo(this.x, this.y);
+    ctx.closePath();
+    ctx.globalAlpha = this.opacity;
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  };
+  const ctx = canvasEl.getContext('2d');
+  const confNum = Math.floor(w / 4);
+  const confs = new Array(confNum).fill().map(_ => new Confetti());
+  loop();
+  </script>
+</body>
+</html>
